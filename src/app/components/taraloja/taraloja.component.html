@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+
+    <title>Crear Tarifas</title>
+</head>
+
+<body>
+
+    <form #tipForm="ngForm" (ngSubmit)="onSubmit(tipForm)">
+        <div class="row justify-content-center">
+            <div class="col-md-10 offset-md-1">
+                <span class="anchor" id="formComplex"></span>
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Ingrese la información requerida</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row mt-12">
+                            <div class="col-sm-4 pb-3 form-group">
+                                <label for="exampleAccount" for="doccon"><b>Tipo de Alojamiento*</b></label>
+                                <input type="number" class="form-control" id="exampleAccount" name="tiposaloja_id"
+                                    #tiposaloja_id="ngModel" [(ngModel)]="taraloja.tiposaloja_id" required>
+                                <small *ngIf="!tiposaloja_id.valid && tiposaloja_id.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                            <div class="col-sm-4 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Tarifa A*</b></label>
+                                <input type="text" class="form-control" id="exampleAccount" name="tarA"
+                                    placeholder="Tarifa A" #tarA="ngModel" [(ngModel)]="taraloja.tarA" required>
+                                <small *ngIf="!tarA.valid && tarA.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                            <div class="col-sm-4 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Tarifa B*</b></label>
+                                <input type="text" class="form-control" id="exampleAccount" name="tarB"
+                                    placeholder="Tarifa B" #tarB="ngModel" [(ngModel)]="taraloja.tarB" required>
+                                <small *ngIf="!tarB.valid && tarB.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row mt-12">
+                            <div class="col-sm-4 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Tarifa C*</b></label>
+                                <input type="text" class="form-control" id="exampleAccount" name="tarC"
+                                    placeholder="Tarifa C" #tarC="ngModel" [(ngModel)]="taraloja.tarC" required>
+                                <small *ngIf="!tarC.valid && tarC.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                            <div class="col-sm-4 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Tarifa D*</b></label>
+                                <input type="text" class="form-control" id="exampleAccount" name="tarD"
+                                    placeholder="Tarifa D" #tarD="ngModel" [(ngModel)]="taraloja.tarD" required>
+                                <small *ngIf="!tarD.valid && tarD.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                            <div class="col-sm-4 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Tarifa E*</b></label>
+                                <input type="text" class="form-control" id="exampleAccount" name="tarE"
+                                    placeholder="Tarifa E" #tarE="ngModel" [(ngModel)]="taraloja.tarE" required>
+                                <small *ngIf="!tarE.valid && tarE.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                        </div>
+
+                    
+                    </div>
+                    <div class="card-footer">
+                        <div class="row mt-4">
+                            <div class="float-right">
+                                <div class="row mt-4">
+                                    <div class="col-sm-10 pb-3">
+                                        <input class="btn btn-success" type="submit" value="Enviar Información"
+                                            [disabled]="tipForm.invalid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <br>
+
+  <!--   <cdk-virtual-scroll-viewport style="height: 600px" itemSize=10>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Observación</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *cdkVirtualFor="let dt of conductores_res | filter:filterPost">
+                    <td>{{dt.nombre}}</td>
+                    <td>{{dt.apellidos}}</td>
+                    <td>{{dt.sexo}}</td>
+                    <td>
+                        {{dt.cedula}}
+                    </td>
+                    <td>{{dt.celular}}</td>
+                    <td>{{dt.correo}}</td>
+                    <td>{{dt.observacion}}</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </cdk-virtual-scroll-viewport> -->
+
+
+</body>
+
+</html>
