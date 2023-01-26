@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { global } from "./global";
 
 @Injectable()
-export class TaralojaService{
+export class TiposalojaService{
     public url: string;
     public identity:any;
     public token:any;
@@ -19,18 +19,15 @@ export class TaralojaService{
         let params = 'json='+json;
         console.log(params);
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.post(this.url+'taraloja/register', params, {headers: headers});
+        return this._http.post(this.url+'tiposaloja/register', params, {headers: headers});
     }
 
     getAll(user:any):Observable<any>{
         let json = JSON.stringify(user);
         let params = 'json='+json;
-        console.log(params);
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.post(this.url+'taraloja/getAll_tarloja', params, {headers: headers});
+        return this._http.post(this.url+'tiposaloja/getAll_tiposaloja', params, {headers: headers});
     }
-
-    
 
     getIdentity(){
         let identity = JSON.parse(localStorage.getItem('identity')+'');

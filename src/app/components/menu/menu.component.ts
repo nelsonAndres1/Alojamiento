@@ -27,4 +27,7 @@ export class MenuComponent implements OnInit {
     this._router.navigate(['taraloja']);
   }
 
+  tiposaloja(){
+    this._router.navigate(['tiposaloja']);
+  }
 }

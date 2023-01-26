@@ -7,7 +7,8 @@ export class Taraloja{
         public tarC: string,
         public tarD: string,
         public tarE: string,
-        public usuario: string 
+        public usuario: string,
+        public fecha: string 
     ){
 
     }

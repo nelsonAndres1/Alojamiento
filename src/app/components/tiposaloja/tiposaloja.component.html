@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+
+    <title>Crear Tipos de Alojamiento</title>
+</head>
+
+<body>
+
+    <form #tipForm="ngForm" (ngSubmit)="onSubmit(tipForm)">
+        <div class="row content-center">
+            <div class="col-md-10 offset-md-1">
+                <span class="anchor" id="formComplex"></span>
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Ingrese la información requerida</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row mt-12">
+                            <div class="col-sm-6 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Detalle Alojamiento*</b></label>
+                                <input maxlength="50" type="text" class="form-control" id="exampleAccount" name="detalle"
+                                    placeholder="Detalle" #detalle="ngModel" [(ngModel)]="tiposaloja.detalle" required>
+                                <small *ngIf="!detalle.valid && detalle.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                            <div class="col-sm-6 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Estado *</b></label>
+                                <select class="form-control" aria-label="Default select example"
+                                    aria-describedby="basic-addon1" name="estado" #estado="ngModel"
+                                    [(ngModel)]="tiposaloja.estado" required>
+                                    <option></option>
+                                    <option value='A'>ACTIVO</option>
+                                    <option value='I'>INACTIVO</option>
+                                </select>
+                                <small *ngIf="!estado.valid && estado.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row mt-12">
+                            <div class="col-sm-6 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Cantidad Disponibles*</b></label>
+                                <input maxlength="3" type="number" class="form-control" id="exampleAccount" name="disponibles"
+                                    placeholder="Cantidad" #disponibles="ngModel" [(ngModel)]="tiposaloja.disponibles"
+                                    required>
+                                <small *ngIf="!disponibles.valid && disponibles.touched"
+                                    class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                            <div class="col-sm-6 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Titulo*</b></label>
+                                <input type="text" maxlength="80" class="form-control" id="exampleAccount" name="titulo"
+                                    placeholder="Titulo" #titulo="ngModel" [(ngModel)]="tiposaloja.titulo" required>
+                                <small *ngIf="!titulo.valid && titulo.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+
+                        </div>
+                        <div class="row mt-12">
+                            <div class="col-sm-12 pb-3 form-group">
+                                <label for="exampleAccount" for="nomcon"><b>Parrafo*</b></label>
+                                <textarea class="form-control" maxlength="200" id="exampleAccount" name="parrafo" placeholder="Parrafo..."
+                                    #parrafo="ngModel" rows="2" [(ngModel)]="tiposaloja.parrafo" required>
+                                    </textarea>
+                                <small *ngIf="!parrafo.valid && parrafo.touched" class="invalid-feedback d-block">
+                                    Dato Incorrecto!
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row mt-4">
+                            <div class="float-right">
+                                <div class="row mt-4">
+                                    <div class="col-sm-10 pb-3">
+                                        <input class="btn btn-success" type="submit" value="Enviar Información"
+                                            [disabled]="tipForm.invalid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <br>
+    <!-- <div class="table-title">
+        <h3>Tarifas Actuales</h3>
+    </div>
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="text-left">Alojamiento</th>
+                <th class="text-left">Tarifa A</th>
+                <th class="text-left">Tarifa B</th>
+                <th class="text-left">Tarifa C</th>
+                <th class="text-left">Tarifa D</th>
+                <th class="text-left">Tarifa E</th>
+                <th class="text-left">Usuario</th>
+                <th class="text-left">Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dt of datos_taraloja">
+                <td>{{dt.tiposaloja_id}} - {{dt.tiposaloja_id_detalle}}</td>
+                <td>{{dt.tarA}}</td>
+                <td>{{dt.tarB}}</td>
+                <td>{{dt.tarC}}</td>
+                <td>{{dt.tarD}}</td>
+                <td>{{dt.tarE}}</td>
+                <td>{{dt.usuario}}</td>
+                <td>{{dt.fecha}}</td>
+            </tr>
+        </tbody>
+    </table>
+ -->
+
+</body>
+
+</html>

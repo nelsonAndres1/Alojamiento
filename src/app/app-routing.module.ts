@@ -4,6 +4,7 @@ import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { TaralojaComponent } from './components/taraloja/taraloja.component';
+import { TiposalojaComponent } from './components/tiposaloja/tiposaloja.component';
 
 const routes: Routes = [
   {path: '',redirectTo: '/panel/user',pathMatch: 'full'},
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'taraloja', component: TaralojaComponent},
+  {path: 'tiposaloja', component: TiposalojaComponent},
   {path: '**',redirectTo: '/panel/user',pathMatch: 'full'},
 ];
 

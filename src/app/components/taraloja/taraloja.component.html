@@ -14,7 +14,7 @@
 <body>
 
     <form #tipForm="ngForm" (ngSubmit)="onSubmit(tipForm)">
-        <div class="row justify-content-center">
+        <div class="row content-center">
             <div class="col-md-10 offset-md-1">
                 <span class="anchor" id="formComplex"></span>
                 <div class="card card-outline-secondary">
@@ -26,9 +26,14 @@
                         <div class="row mt-12">
                             <div class="col-sm-4 pb-3 form-group">
                                 <label for="exampleAccount" for="doccon"><b>Tipo de Alojamiento*</b></label>
-                                <input type="number" class="form-control" id="exampleAccount" name="tiposaloja_id"
-                                    #tiposaloja_id="ngModel" [(ngModel)]="taraloja.tiposaloja_id" required>
-                                <small *ngIf="!tiposaloja_id.valid && tiposaloja_id.touched" class="invalid-feedback d-block">
+                                <select class="form-control" aria-label="Default select example"
+                                    aria-describedby="basic-addon1" name="tiposaloja_id" #tiposaloja_id="ngModel"
+                                    [(ngModel)]="taraloja.tiposaloja_id" required>
+                                    <option *ngFor="let ta of tipaloja" value={{ta.id}}>
+                                        {{ta.id}} - {{ta.detalle}}</option>
+                                </select>
+                                <small *ngIf="!tiposaloja_id.valid && tiposaloja_id.touched"
+                                    class="invalid-feedback d-block">
                                     Dato Incorrecto!
                                 </small>
                             </div>
@@ -76,7 +81,7 @@
                             </div>
                         </div>
 
-                    
+
                     </div>
                     <div class="card-footer">
                         <div class="row mt-4">
@@ -96,38 +101,35 @@
     </form>
 
     <br>
-
-  <!--   <cdk-virtual-scroll-viewport style="height: 600px" itemSize=10>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Sexo</th>
-                    <th scope="col">Cedula</th>
-                    <th scope="col">Celular</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Observación</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *cdkVirtualFor="let dt of conductores_res | filter:filterPost">
-                    <td>{{dt.nombre}}</td>
-                    <td>{{dt.apellidos}}</td>
-                    <td>{{dt.sexo}}</td>
-                    <td>
-                        {{dt.cedula}}
-                    </td>
-                    <td>{{dt.celular}}</td>
-                    <td>{{dt.correo}}</td>
-                    <td>{{dt.observacion}}</td>
-                </tr>
-
-            </tbody>
-
-        </table>
-    </cdk-virtual-scroll-viewport> -->
+    <div class="table-title">
+        <h3>Tarifas Actuales</h3>
+    </div>
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="text-left">Alojamiento</th>
+                <th class="text-left">Tarifa A</th>
+                <th class="text-left">Tarifa B</th>
+                <th class="text-left">Tarifa C</th>
+                <th class="text-left">Tarifa D</th>
+                <th class="text-left">Tarifa E</th>
+                <th class="text-left">Usuario</th>
+                <th class="text-left">Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dt of datos_taraloja">
+                <td>{{dt.tiposaloja_id}} - {{dt.tiposaloja_id_detalle}}</td>
+                <td>{{dt.tarA}}</td>
+                <td>{{dt.tarB}}</td>
+                <td>{{dt.tarC}}</td>
+                <td>{{dt.tarD}}</td>
+                <td>{{dt.tarE}}</td>
+                <td>{{dt.usuario}}</td>
+                <td>{{dt.fecha}}</td>
+            </tr>
+        </tbody>
+    </table>
 
 
 </body>

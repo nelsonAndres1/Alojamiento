@@ -14,6 +14,7 @@ import { NavigationComponent } from './layout/navigation/navigation.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { TaralojaComponent } from './components/taraloja/taraloja.component';
+import { TiposalojaComponent } from './components/tiposaloja/tiposaloja.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { TaralojaComponent } from './components/taraloja/taraloja.component';
     NavigationComponent,
     LoginComponent,
     MenuComponent,
-    TaralojaComponent
+    TaralojaComponent,
+    TiposalojaComponent
   ],
   imports: [
     BrowserModule,

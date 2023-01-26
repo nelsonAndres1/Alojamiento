@@ -3,15 +3,18 @@ import { Taraloja } from 'app/models/taraloja';
 import { TaralojaService } from '@shared/services/taraloja.service';
 import { TiposalojaService } from '@shared/services/tiposloja.service';
 import Swal from 'sweetalert2';
+import { Tiposaloja } from 'app/models/tiposaloja';
+
 @Component({
-  selector: 'app-taraloja',
-  templateUrl: './taraloja.component.html',
-  styleUrls: ['./taraloja.component.scss'],
+  selector: 'app-tiposaloja',
+  templateUrl: './tiposaloja.component.html',
+  styleUrls: ['./tiposaloja.component.scss'],
   providers: [TaralojaService, TiposalojaService]
 })
-export class TaralojaComponent implements OnInit {
+export class TiposalojaComponent implements OnInit {
 
   taraloja: Taraloja;
+  tiposaloja: Tiposaloja;
   usuario_logeado: any;
   usuario: any;
   tipaloja: any = [];
@@ -19,33 +22,12 @@ export class TaralojaComponent implements OnInit {
   constructor(private _taralojaService: TaralojaService, private _tiposalojaService: TiposalojaService) {
     this.usuario_logeado = JSON.parse(localStorage.getItem('identity') + '');
     this.usuario = this.usuario_logeado['sub'];
-    this.taraloja = new Taraloja(0, '', '', '', '', '', '', this.usuario, '');
-
-
-    this._tiposalojaService.getAll({}).subscribe(
-      response => {
-        this.tipaloja = response;
-        console.log(response);
-      }
-    );
-
-    this.taraloja_service();
-  }
+    this.tiposaloja = new Tiposaloja(0,'','','','',0,this.usuario,'');
+   }
 
   ngOnInit() {
   }
-
-  taraloja_service() {
-    this._taralojaService.getAll({}).subscribe(
-      response => {
-        this.datos_taraloja = response;
-      }
-    )
-  }
-
-
-
-  onSubmit(form: any) {
+  onSubmit(form:any){
     Swal.fire({
       title: 'Esta seguro de guardar cambios?',
       showDenyButton: true,
@@ -54,7 +36,7 @@ export class TaralojaComponent implements OnInit {
       denyButtonText: `No guardar`,
     }).then((result) => {
       if (result.isConfirmed) {
-        this._taralojaService.register(this.taraloja).subscribe(
+        this._tiposalojaService.register(this.tiposaloja).subscribe(
           response => {
             console.log(response);
             if (response.status == 'success') {
@@ -64,7 +46,7 @@ export class TaralojaComponent implements OnInit {
                 'success'
               )
               form.reset();
-              this.taraloja_service();
+              /* this.taraloja_service(); */
             } else {
               Swal.fire(
                 'No guardado!',
@@ -84,5 +66,11 @@ export class TaralojaComponent implements OnInit {
         Swal.fire('Cambios no guardados', '', 'info')
       }
     })
+
+
+
+    
+    
   }
+
 }
