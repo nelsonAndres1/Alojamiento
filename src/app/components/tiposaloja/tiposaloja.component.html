@@ -26,8 +26,9 @@
                         <div class="row mt-12">
                             <div class="col-sm-6 pb-3 form-group">
                                 <label for="exampleAccount" for="nomcon"><b>Detalle Alojamiento*</b></label>
-                                <input maxlength="50" type="text" class="form-control" id="exampleAccount" name="detalle"
-                                    placeholder="Detalle" #detalle="ngModel" [(ngModel)]="tiposaloja.detalle" required>
+                                <input maxlength="50" type="text" class="form-control" id="exampleAccount"
+                                    name="detalle" placeholder="Detalle" #detalle="ngModel"
+                                    [(ngModel)]="tiposaloja.detalle" required>
                                 <small *ngIf="!detalle.valid && detalle.touched" class="invalid-feedback d-block">
                                     Dato Incorrecto!
                                 </small>
@@ -49,9 +50,9 @@
                         <div class="row mt-12">
                             <div class="col-sm-6 pb-3 form-group">
                                 <label for="exampleAccount" for="nomcon"><b>Cantidad Disponibles*</b></label>
-                                <input maxlength="3" type="number" class="form-control" id="exampleAccount" name="disponibles"
-                                    placeholder="Cantidad" #disponibles="ngModel" [(ngModel)]="tiposaloja.disponibles"
-                                    required>
+                                <input maxlength="3" type="number" class="form-control" id="exampleAccount"
+                                    name="disponibles" placeholder="Cantidad" #disponibles="ngModel"
+                                    [(ngModel)]="tiposaloja.disponibles" required>
                                 <small *ngIf="!disponibles.valid && disponibles.touched"
                                     class="invalid-feedback d-block">
                                     Dato Incorrecto!
@@ -70,8 +71,9 @@
                         <div class="row mt-12">
                             <div class="col-sm-12 pb-3 form-group">
                                 <label for="exampleAccount" for="nomcon"><b>Parrafo*</b></label>
-                                <textarea class="form-control" maxlength="200" id="exampleAccount" name="parrafo" placeholder="Parrafo..."
-                                    #parrafo="ngModel" rows="2" [(ngModel)]="tiposaloja.parrafo" required>
+                                <textarea class="form-control" maxlength="200" id="exampleAccount" name="parrafo"
+                                    placeholder="Parrafo..." #parrafo="ngModel" rows="2"
+                                    [(ngModel)]="tiposaloja.parrafo" required>
                                     </textarea>
                                 <small *ngIf="!parrafo.valid && parrafo.touched" class="invalid-feedback d-block">
                                     Dato Incorrecto!
@@ -97,36 +99,35 @@
     </form>
 
     <br>
-    <!-- <div class="table-title">
+    <div class="table-title">
         <h3>Tarifas Actuales</h3>
     </div>
     <table class="table-fill">
         <thead>
             <tr>
-                <th class="text-left">Alojamiento</th>
-                <th class="text-left">Tarifa A</th>
-                <th class="text-left">Tarifa B</th>
-                <th class="text-left">Tarifa C</th>
-                <th class="text-left">Tarifa D</th>
-                <th class="text-left">Tarifa E</th>
+                <th class="text-left">Detalle</th>
+                <th class="text-left">Titulo</th>
+                <th class="text-left">Parrafo</th>
+                <th class="text-left">Disponibles</th>
+                <th class="text-left">Estado</th>
                 <th class="text-left">Usuario</th>
                 <th class="text-left">Fecha</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let dt of datos_taraloja">
-                <td>{{dt.tiposaloja_id}} - {{dt.tiposaloja_id_detalle}}</td>
-                <td>{{dt.tarA}}</td>
-                <td>{{dt.tarB}}</td>
-                <td>{{dt.tarC}}</td>
-                <td>{{dt.tarD}}</td>
-                <td>{{dt.tarE}}</td>
+            <tr *ngFor="let dt of tipaloja">
+                <td>{{dt.id}} - {{dt.detalle}}</td>
+                <td>{{dt.titulo}}</td>
+                <td>{{dt.parrafo}}</td>
+                <td>{{dt.disponibles}}</td>
+                <td>{{dt.estado}}</td>
                 <td>{{dt.usuario}}</td>
                 <td>{{dt.fecha}}</td>
             </tr>
         </tbody>
     </table>
- -->
+
+
 
 </body>
 

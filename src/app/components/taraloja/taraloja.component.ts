@@ -14,7 +14,7 @@ export class TaralojaComponent implements OnInit {
   taraloja: Taraloja;
   usuario_logeado: any;
   usuario: any;
-  tipaloja: any = [];
+  tipaloja: any;
   datos_taraloja: any = [];
   constructor(private _taralojaService: TaralojaService, private _tiposalojaService: TiposalojaService) {
     this.usuario_logeado = JSON.parse(localStorage.getItem('identity') + '');
@@ -25,6 +25,7 @@ export class TaralojaComponent implements OnInit {
     this._tiposalojaService.getAll({}).subscribe(
       response => {
         this.tipaloja = response;
+        console.log("this.tipaloja");
         console.log(response);
       }
     );
@@ -38,7 +39,15 @@ export class TaralojaComponent implements OnInit {
   taraloja_service() {
     this._taralojaService.getAll({}).subscribe(
       response => {
-        this.datos_taraloja = response;
+
+        if (response.status == 'error') {
+          this.datos_taraloja = [];
+          Swal.fire('Información', 'No existen datos de tarifas!', 'info');
+        } else {
+          console.log("ahhhhhh!");
+          console.log(response);
+          this.datos_taraloja = response;
+        }
       }
     )
   }

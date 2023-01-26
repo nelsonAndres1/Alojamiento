@@ -23,9 +23,21 @@ export class TiposalojaComponent implements OnInit {
     this.usuario_logeado = JSON.parse(localStorage.getItem('identity') + '');
     this.usuario = this.usuario_logeado['sub'];
     this.tiposaloja = new Tiposaloja(0,'','','','',0,this.usuario,'');
-   }
+    console.log(this.tiposaloja);
+    this.tiposaloja_service();
+  }
 
   ngOnInit() {
+  }
+
+  tiposaloja_service(){
+    this._tiposalojaService.getAll({}).subscribe(
+      response => {
+        this.tipaloja = response;
+        console.log(response);
+      }
+    );
+
   }
   onSubmit(form:any){
     Swal.fire({
@@ -46,7 +58,7 @@ export class TiposalojaComponent implements OnInit {
                 'success'
               )
               form.reset();
-              /* this.taraloja_service(); */
+              this.tiposaloja_service();
             } else {
               Swal.fire(
                 'No guardado!',
