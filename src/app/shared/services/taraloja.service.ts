@@ -30,6 +30,15 @@ export class TaralojaService{
         return this._http.post(this.url+'taraloja/getAll_tarloja', params, {headers: headers});
     }
 
+    getTarifas(user:any):Observable<any>{
+        let json = JSON.stringify(user);
+        let params = 'json='+json;
+        console.log(params);
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.post(this.url+'taraloja/getTarifas', params, {headers: headers});
+    }
+
+    
     
 
     getIdentity(){
