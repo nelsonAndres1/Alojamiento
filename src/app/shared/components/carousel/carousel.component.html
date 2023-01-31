@@ -1,7 +1,7 @@
 <div class="dsc-carousel" [ngStyle]="{'min-height': finalHeight}">
     <div class="dsc-carousel__btns">
-        <i class="fa fa-chevron-circle-left" (click)="setBack()"></i>
-        <i class="fa fa-chevron-circle-right" (click)="setNext()"></i>
+        <i class="fa fa-chevron-circle-left" id="btn1" (click)="setBack()"></i>
+        <i class="fa fa-chevron-circle-right" id="btn2" (click)="setNext()"></i>
     </div>
     <div class="dsc-carousel__content">
         <ng-container *ngFor="let section of items;">

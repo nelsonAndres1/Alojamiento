@@ -4,6 +4,8 @@ import { TaralojaService } from '@shared/services/taraloja.service';
 import { TiposalojaService } from '@shared/services/tiposloja.service';
 import Swal from 'sweetalert2';
 import { Tiposaloja } from 'app/models/tiposaloja';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+
 
 @Component({
   selector: 'app-footer',
@@ -21,7 +23,7 @@ export class FooterComponent implements OnInit {
   usuario: any;
   tipaloja: any = [];
   datos_taraloja: any = [];
-  constructor(private _taralojaService: TaralojaService, private _tiposalojaService: TiposalojaService) {
+  constructor(private _taralojaService: TaralojaService, private _tiposalojaService: TiposalojaService, private _router: Router,) {
 
     this.tiposaloja_service();
 
@@ -78,6 +80,16 @@ export class FooterComponent implements OnInit {
   }
 
   reservas(res){
+/* 
+        const navigationExtras: NavigationExtras = {
+            queryParams: {
+                result: JSON.stringify(numero)
+            }
+        } */
+        localStorage.setItem('reserva', JSON.stringify(res));
+
+
+    this._router.navigate(['reserva']);
     console.log(res);
   }
 

@@ -1,5 +1,5 @@
 export var global = {
 
-     url: 'http://localhost/angular/backend/Alojamiento_Back/public/api/'
+     url: 'http://localhost/angular/Alojamiento_Back/public/api/'
 
 }

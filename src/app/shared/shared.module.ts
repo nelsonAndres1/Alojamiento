@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import * as fromComponents from './components';
 import { RouterModule } from '@angular/router';
+import { ReservaComponent } from './components/reserva/reserva.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule
   ],
-  declarations: [...fromComponents.components],
+  declarations: [...fromComponents.components, ReservaComponent],
   exports: [
     FormsModule,
     ReactiveFormsModule,

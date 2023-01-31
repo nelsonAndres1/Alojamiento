@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Reserva</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <section class="container">
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title"><p><u>Detalles de la Reserva</u></p></span>
+                        <h6><b>Tipo</b></h6><p>{{token.detalle}}</p>
+                        <p>{{token.titulo}}</p>
+                        <h6><b>Detalle</b></h6><p>{{token.parrafo}}</p>
+                        <h6><b>Disponibles</b></h6><p>{{token.disponibles}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+            <div class="row mt-12">
+                <h5>
+                    <p> Complete el siguiente formulario para continuar con su reserva</p>
+                </h5>
+                <div class="col-sm-6 pb-3 form-group">
+                    <div class="input-field">
+                        <label for="nombre"><b>Documento de Identificación</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">badge</i>
+                        <input type="text" name="documento" placeholder="Documento" #documento="ngModel" [(ngModel)]="reserva.documento" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="apellido"><b>Nombres</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">person_pin</i>
+                        <input type="text" name="nombres" placeholder="Nombres" #nombres="ngModel" [(ngModel)]="reserva.nombres" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="apellido"><b>Apellidos</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">person_pin</i>
+                        <input type="text" name="apellidos" placeholder="apellidos" #apellidos="ngModel" [(ngModel)]="reserva.apellidos" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="email"><b>Correo</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">email</i>
+                        <input type="email" name="correo" placeholder="correo" #correo="ngModel" [(ngModel)]="reserva.correo" required>
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-6 pb-3 form-group">
+                    <div class="input-field">
+                        <label for="nombre"><b>Pais</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">travel_explore</i>
+                        <input type="text" name="pais" placeholder="Pais" #pais="ngModel" [(ngModel)]="reserva.pais" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="apellido"><b>Celular</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">phone_android</i>
+                        <input type="text" name="telefono" placeholder="Celular" #telefono="ngModel" [(ngModel)]="reserva.telefono" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="apellido"><b>Fecha Inicial</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">calendar_month</i>
+                        <input type="date" name="fecha_ini" placeholder="Fecha inicial" #fecha_ini="ngModel" [(ngModel)]="reserva.fecha_ini" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="email"><b>Fecha Final</b></label>
+                        <br>
+                        <br>
+                        <i class="material-icons prefix">calendar_month</i>
+                        <input type="date" name="fecha_fin" placeholder="Fecha Final" #fecha_fin="ngModel" [(ngModel)]="reserva.fecha_fin" required>
+                    </div>
+                </div>
+            </div>
+            <div id="hijo" class="row mt-12" style="align-items: center;">
+                <p class="center-align">
+                    <button class="waves-effect waves-light btn" type="submit"><i
+                            class="material-icons right">check_box</i>Reservar</button>
+                </p>
+            </div>
+        </form>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+</body>
+
+</html>
