@@ -12,7 +12,7 @@ export class UserService extends ApiClass {
   /**
    * Get all user from api
    */
-  getAllUsers(): Observable<{
+/*   getAllUsers(): Observable<{
     error: boolean,
     msg: string;
     data: ICardUser[]
@@ -26,13 +26,13 @@ export class UserService extends ApiClass {
       }),
       catchError(this.error)
     );
-  }
+  } */
 
   /**
    * Get one user by id
    * @param id number
    */
-  getUserById(id: number): Observable<{
+  /* getUserById(id: number): Observable<{
     error: boolean,
     msg: string,
     data: ICardUser
@@ -47,5 +47,5 @@ export class UserService extends ApiClass {
         ),
         catchError(this.error)
       );
-  }
+  } */
 }

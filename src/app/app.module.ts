@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +15,9 @@ import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { TaralojaComponent } from './components/taraloja/taraloja.component';
 import { TiposalojaComponent } from './components/tiposaloja/tiposaloja.component';
-
+import localeEs from '@angular/common/locales/es';
+import {registerLocaleData} from '@angular/common';
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { TiposalojaComponent } from './components/tiposaloja/tiposaloja.componen
     AppRoutingModule
   ],
   providers: [
+    {provide: LOCALE_ID, useValue:'es'},
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
