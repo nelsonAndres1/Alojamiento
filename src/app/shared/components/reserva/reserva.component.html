@@ -39,7 +39,10 @@
                         <br>
                         <i class="material-icons prefix">badge</i>
                         <input type="text" name="documento" placeholder="Documento" #documento="ngModel"
-                            [(ngModel)]="reserva.documento" required>
+                            [(ngModel)]="reserva.documento" (blur)="busqueda()" required>
+                        <small *ngIf="!documento.valid && documento.touched" class="invalid-feedback d-block">
+                            El campo no es valido!
+                        </small>
                     </div>
                     <div class="input-field">
                         <label for="apellido"><b>Nombres</b></label>
@@ -48,6 +51,9 @@
                         <i class="material-icons prefix">person_pin</i>
                         <input type="text" name="nombres" placeholder="Nombres" #nombres="ngModel"
                             [(ngModel)]="reserva.nombres" required>
+                        <small *ngIf="!nombres.valid && nombres.touched" class="invalid-feedback d-block">
+                            El campo no es valido!
+                        </small>
                     </div>
                     <div class="input-field">
                         <label for="apellido"><b>Apellidos</b></label>
@@ -56,12 +62,19 @@
                         <i class="material-icons prefix">person_pin</i>
                         <input type="text" name="apellidos" placeholder="apellidos" #apellidos="ngModel"
                             [(ngModel)]="reserva.apellidos" required>
+                        <small *ngIf="!apellidos.valid && apellidos.touched" class="invalid-feedback d-block">
+                            El campo no es valido!
+                        </small>
                     </div>
-
+                    <div class="input-field">
+                        <label for="apellido"><b>Categoria <u>{{reserva.categoria}}</u></b></label>
+                        <!-- <br>
+                        <br>
+                        <i class="material-icons prefix">person_pin</i>
+                        <input type="text" name="Categoria" placeholder="Categoria" #categoria="ngModel"
+                            [(ngModel)]="reserva.categoria" disabled> -->
+                    </div>
                 </div>
-
-
-
                 <div class="col-sm-6 pb-3 form-group">
                     <div class="input-field">
                         <label for="email"><b>Correo</b></label>
@@ -70,6 +83,9 @@
                         <i class="material-icons prefix">email</i>
                         <input type="email" name="correo" placeholder="correo" #correo="ngModel"
                             [(ngModel)]="reserva.correo" required>
+                        <small *ngIf="!correo.valid && correo.touched" class="invalid-feedback d-block">
+                            El campo no es valido!
+                        </small>
                     </div>
                     <div class="input-field">
                         <label for="nombre"><b>Pais</b></label>
@@ -78,6 +94,9 @@
                         <i class="material-icons prefix">travel_explore</i>
                         <input type="text" name="pais" placeholder="Pais" #pais="ngModel" [(ngModel)]="reserva.pais"
                             required>
+                        <small *ngIf="!pais.valid && pais.touched" class="invalid-feedback d-block">
+                            El campo no es valido!
+                        </small>
                     </div>
                     <div class="input-field">
                         <label for="apellido"><b>Celular</b></label>
@@ -86,11 +105,16 @@
                         <i class="material-icons prefix">phone_android</i>
                         <input type="text" name="telefono" placeholder="Celular" #telefono="ngModel"
                             [(ngModel)]="reserva.telefono" required>
+                        <small *ngIf="!telefono.valid && telefono.touched" class="invalid-feedback d-block">
+                            El campo no es valido!
+                        </small>
                     </div>
+
+
+
 
                 </div>
             </div>
-
             <div class="row mt-12">
                 <h5>
                     <p>Seleccione la fecha inicial y fecha final de su alojamiento</p>
@@ -110,10 +134,15 @@
                             <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}}</li>
                             <li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
                                 *ngFor="let day of monthSelect;let first = first">
-                                <div id="calendar" *ngIf="day.value == 31; then thenBlock else elseBlock"></div>
-                                <ng-template #thenBlock><span
-                                        style="background-color: brown;">{{day.value}}</span></ng-template>
-                                <ng-template #elseBlock><span>{{day.value}}</span></ng-template>
+                                <div id="calendar" *ngIf="day.value == 1; then thenBlock else elseBlock"></div>
+                                <ng-template #thenBlock>
+                                    <span style="background-color: rgb(192, 205, 214);">{{day.value}}</span>
+                                </ng-template>
+                                <ng-template #elseBlock>
+                                    <span>
+                                        {{day.value}}
+                                    </span>
+                                </ng-template>
                             </li>
                         </ol>
                     </div>
@@ -129,7 +158,7 @@
                             </div>
                             <div class="input-field">
                                 <br>
-                                <label for="nombre"><b>Fecha Inicial: </b>{{dateValueFinal |date}}</label>
+                                <label for="nombre"><b>Fecha Final: </b>{{dateValueFinal |date}}</label>
                             </div>
                             <br>
                             <div class="input-field">
@@ -142,35 +171,16 @@
 
                         </div>
                     </div>
-                    <!--     <label for="apellido"><b>Fecha Inicial</b></label>
-                    <br>
-                    <br>
-                    <i class="material-icons prefix">calendar_month</i>
-                    <input type="date" name="fecha_ini" placeholder="Fecha inicial" #fecha_ini="ngModel"
-                        [(ngModel)]="reserva.fecha_ini" required>
-                </div>
-                <div class="input-field">
-                    <label for="email"><b>Fecha Final</b></label>
-                    <br>
-                    <br>
-                    <i class="material-icons prefix">calendar_month</i>
-                    <input type="date" name="fecha_fin" placeholder="Fecha Final" #fecha_fin="ngModel"
-                        [(ngModel)]="reserva.fecha_fin" required> -->
                 </div>
             </div>
-
             <div id="hijo" class="row mt-12" style="align-items: center;">
                 <p class="center-align">
-                    <button class="waves-effect waves-light btn" type="submit"><i
+                    <button class="waves-effect waves-light btn" type="submit" [disabled]="registerForm.invalid"><i
                             class="material-icons right">check_box</i>Reservar</button>
                 </p>
             </div>
         </form>
     </section>
-
-
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 </body>
 
 </html>

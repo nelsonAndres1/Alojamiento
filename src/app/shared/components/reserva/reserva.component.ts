@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Reservas } from 'app/models/reservas';
 import * as moment from 'moment'
+import Swal from 'sweetalert2';
+import { Subsi15Service } from '@shared/services/subsi15.service';
 
 @Component({
   selector: 'app-reserva',
   templateUrl: './reserva.component.html',
-  styleUrls: ['./reserva.component.scss']
+  styleUrls: ['./reserva.component.scss'],
+  providers: [Subsi15Service]
 })
 export class ReservaComponent implements OnInit {
 
@@ -24,9 +27,10 @@ export class ReservaComponent implements OnInit {
   dateSelect: any;
   dateValue: any = '';
   dateValueFinal: any = '';
+  opcion: any = [32];
 
-  constructor() {
-    
+  constructor(private subsi15Service: Subsi15Service) {
+
     this.token = JSON.parse(localStorage.getItem("reserva") + '');
     this.reserva = new Reservas(0, '', '', '', '', '', '', this.token.id, '', '', '', '', '', '');
   }
@@ -35,19 +39,65 @@ export class ReservaComponent implements OnInit {
     this.getDaysFromDate(1, 2023)
   }
 
-  onSubmit(form){
+  busqueda() {
     console.log(this.reserva);
+    console.log("blur funciona!");
+    this.subsi15Service.getCategoria(this.reserva).subscribe(
+      response => {
+        if (response.bandera) {
+          this.reserva.nombres = response.nombres;
+          this.reserva.apellidos = response.apellidos;
+          this.reserva.categoria = response.codcat;
+
+
+        } else {
+          this.reserva = new Reservas(0, '', '', '', '', '', '', this.token.id, '', '', '', '', '', '');
+          Swal.fire(
+            'Información',
+            'Trabajador no existe o está inactivo',
+            'info'
+          )
+
+        }
+      }
+    )
+
+
+  }
+  onSubmit(form) {
+    console.log(this.dateValue, this.dateValueFinal);
+    if (this.dateValue != '' || this.dateValueFinal != '') {
+      if (this.dateValue <= this.dateValueFinal) {
+        this.reserva.fecha_ini = this.dateValue;
+        this.reserva.fecha_fin = this.dateValueFinal;
+        
+      
+
+
+      } else {
+        this.dateValue = '';
+        this.dateValueFinal = '';
+        Swal.fire(
+          'Error',
+          'la fecha final no puede ser menor a la inicial!, verifique las fechas.',
+          'error'
+        )
+      }
+    } else {
+      Swal.fire(
+        'Error',
+        'Fechas vacias, favor verificar!',
+        'error'
+      )
+    }
   }
 
   getDaysFromDate(month, year) {
-
     const startDate = moment(`${year}/${month}/01`)
     const endDate = startDate.clone().endOf('month')
     this.dateSelect = startDate;
-
     const diffDays = endDate.diff(startDate, 'days', true)
     const numberDays = Math.round(diffDays);
-
     const arrayDays = Object.keys([...Array(numberDays)]).map((a: any) => {
       a = parseInt(a) + 1;
       const dayObject = moment(`${year}-${month}-${a}`);
@@ -57,7 +107,6 @@ export class ReservaComponent implements OnInit {
         indexWeek: dayObject.isoWeekday()
       };
     });
-
     this.monthSelect = arrayDays;
   }
 
@@ -70,8 +119,9 @@ export class ReservaComponent implements OnInit {
       this.getDaysFromDate(nextDate.format("MM"), nextDate.format("YYYY"));
     }
   }
-
   clickDay(day) {
+    this.opcion.push(day.value);
+    console.log(this.opcion);
     const monthYear = this.dateSelect.format('YYYY-MM')
     console.log("month year!")
     console.log(monthYear);
@@ -92,7 +142,6 @@ export class ReservaComponent implements OnInit {
   borrar() {
     this.dateValueFinal = '';
     this.dateValue = '';
+    this.opcion = [32];
   }
-
-
 }
