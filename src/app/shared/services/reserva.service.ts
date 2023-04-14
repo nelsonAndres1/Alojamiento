@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { global } from "./global";
 
 @Injectable()
-export class TaralojaService {
+export class ReservaService {
     public url: string;
     public identity: any;
     public token: any;
@@ -18,30 +18,29 @@ export class TaralojaService {
         let json = JSON.stringify(user);
         let params = 'json=' + json;
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.post(this.url + 'taraloja/register', params, { headers: headers });
+        return this._http.post(this.url + 'reservas/register', params, { headers: headers });
     }
 
-    getAll(user: any): Observable<any> {
+    getReservas(user: any): Observable<any> {
         let json = JSON.stringify(user);
         let params = 'json=' + json;
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.post(this.url + 'taraloja/getAll_tarloja', params, { headers: headers });
+        return this._http.post(this.url + 'reservas/getReservas', params, { headers: headers });
     }
 
-    getTarifas(user: any): Observable<any> {
+    getAll_tiposalojaId(user: any): Observable<any> {
         let json = JSON.stringify(user);
         let params = 'json=' + json;
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.post(this.url + 'taraloja/getTarifas', params, { headers: headers });
+        return this._http.post(this.url + 'reservas/getAll_tiposalojaId', params, { headers: headers });
     }
 
-    getTarifa(user: any): Observable<any> {
+    verificarReservas(user: any): Observable<any> {
         let json = JSON.stringify(user);
         let params = 'json=' + json;
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.post(this.url + 'reserva/getTarifa', params, { headers: headers });
+        return this._http.post(this.url + 'reservas/verificarReservas', params, { headers: headers });
     }
-
     getIdentity() {
         let identity = JSON.parse(localStorage.getItem('identity') + '');
 

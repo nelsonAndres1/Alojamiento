@@ -1,186 +1,147 @@
-<html lang="en">
+<div class="container py-xl-5">
+    <h2 class="text-center mb-3">Detalles de la Reserva</h2>
+</div>
+<div class="card card-outline-secondary">
+    <div class="card-header">
+        <h3 class="mb-0">Detalles de la Reserva</h3>
+    </div>
+</div>
+<section class="section-galeria section">
+    <div class="container-boxs">
+        <div class="box">
+            <div class="box__Cnt-img">
+                <img style="border-radius: 10%;" src="assets/images/1.jpeg" alt="" class="box__img">
+            </div>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Formulario de Reserva</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-
-<body>
-    <section class="container">
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">
-                            <p><u>Detalles de la Reserva</u></p>
-                        </span>
-                        <h6><b>Tipo</b></h6>
-                        <p>{{token.detalle}}</p>
-                        <p>{{token.titulo}}</p>
-                        <h6><b>Detalle</b></h6>
-                        <p>{{token.parrafo}}</p>
-                        <h6><b>Disponibles</b></h6>
-                        <p>{{token.disponibles}}</p>
-                    </div>
-                </div>
+            <div class="box__cnt-titulo-img">
+                <h2 class="box__titulo-img">Sala</h2>
             </div>
         </div>
+
+        <div class="box">
+            <div class="box__Cnt-img">
+                <img style="border-radius: 10%;" src="assets/images/2.jpeg" alt="" class="box__img">
+            </div>
+
+            <div class="box__cnt-titulo-img">
+                <h2 class="box__titulo-img">Comedor </h2>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box__Cnt-img">
+                <img style="border-radius: 10%;" src="assets/images/3.jpeg" alt="" class="box__img">
+            </div>
+
+            <div class="box__cnt-titulo-img">
+                <h2 class="box__titulo-img">Habitaciones </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container py-xl-5">
+    <h2 class="text-center mb-3">Reserva</h2>
+    <div class="row justify-content-center">
         <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-            <div class="row mt-12">
-                <h5>
-                    <p> Complete el siguiente formulario para continuar con su reserva</p>
-                </h5>
-                <div class="col-sm-6 pb-3 form-group">
-                    <div class="input-field">
-                        <label for="nombre"><b>Documento de Identificación</b></label>
-                        <br>
-                        <br>
-                        <i class="material-icons prefix">badge</i>
-                        <input type="text" name="documento" placeholder="Documento" #documento="ngModel"
-                            [(ngModel)]="reserva.documento" (blur)="busqueda()" required>
-                        <small *ngIf="!documento.valid && documento.touched" class="invalid-feedback d-block">
-                            El campo no es valido!
-                        </small>
+            <div class="col-md-12">
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Ingrese la información requerida</h3>
                     </div>
-                    <div class="input-field">
-                        <label for="apellido"><b>Nombres</b></label>
-                        <br>
-                        <br>
-                        <i class="material-icons prefix">person_pin</i>
-                        <input type="text" name="nombres" placeholder="Nombres" #nombres="ngModel"
-                            [(ngModel)]="reserva.nombres" required>
-                        <small *ngIf="!nombres.valid && nombres.touched" class="invalid-feedback d-block">
-                            El campo no es valido!
-                        </small>
-                    </div>
-                    <div class="input-field">
-                        <label for="apellido"><b>Apellidos</b></label>
-                        <br>
-                        <br>
-                        <i class="material-icons prefix">person_pin</i>
-                        <input type="text" name="apellidos" placeholder="apellidos" #apellidos="ngModel"
-                            [(ngModel)]="reserva.apellidos" required>
-                        <small *ngIf="!apellidos.valid && apellidos.touched" class="invalid-feedback d-block">
-                            El campo no es valido!
-                        </small>
-                    </div>
-                    <div class="input-field">
-                        <label for="apellido"><b>Categoria <u>{{reserva.categoria}}</u></b></label>
-                        <!-- <br>
-                        <br>
-                        <i class="material-icons prefix">person_pin</i>
-                        <input type="text" name="Categoria" placeholder="Categoria" #categoria="ngModel"
-                            [(ngModel)]="reserva.categoria" disabled> -->
-                    </div>
-                </div>
-                <div class="col-sm-6 pb-3 form-group">
-                    <div class="input-field">
-                        <label for="email"><b>Correo</b></label>
-                        <br>
-                        <br>
-                        <i class="material-icons prefix">email</i>
-                        <input type="email" name="correo" placeholder="correo" #correo="ngModel"
-                            [(ngModel)]="reserva.correo" required>
-                        <small *ngIf="!correo.valid && correo.touched" class="invalid-feedback d-block">
-                            El campo no es valido!
-                        </small>
-                    </div>
-                    <div class="input-field">
-                        <label for="nombre"><b>Pais</b></label>
-                        <br>
-                        <br>
-                        <i class="material-icons prefix">travel_explore</i>
-                        <input type="text" name="pais" placeholder="Pais" #pais="ngModel" [(ngModel)]="reserva.pais"
-                            required>
-                        <small *ngIf="!pais.valid && pais.touched" class="invalid-feedback d-block">
-                            El campo no es valido!
-                        </small>
-                    </div>
-                    <div class="input-field">
-                        <label for="apellido"><b>Celular</b></label>
-                        <br>
-                        <br>
-                        <i class="material-icons prefix">phone_android</i>
-                        <input type="text" name="telefono" placeholder="Celular" #telefono="ngModel"
-                            [(ngModel)]="reserva.telefono" required>
-                        <small *ngIf="!telefono.valid && telefono.touched" class="invalid-feedback d-block">
-                            El campo no es valido!
-                        </small>
-                    </div>
+                    <div class="card-body">
+                        <div class="row mt-12">
+                            <div class="col-sm-4 pb-3">
+                                <label for="exampleAccount"><b>Numero de Identificación</b></label>
+                                <input type="text" class="form-control" name="documento" placeholder="Documento"
+                                    #documento="ngModel" [(ngModel)]="reserva.documento" (blur)="busqueda()" required>
 
-
-
-
-                </div>
-            </div>
-            <div class="row mt-12">
-                <h5>
-                    <p>Seleccione la fecha inicial y fecha final de su alojamiento</p>
-                </h5>
-                <div class="col-sm-6 pb-3 form-group">
-                    <div id="calendar" class="wrapper-calendar">
-                        <div id="calendar" class="header-calendar">
-                            <div id="calendar">
-                                <button (click)="changeMonth(-1)" class="btn-prev">Antes</button>
+                                <small *ngIf="!documento.valid && documento.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
                             </div>
-                            <h1>{{dateSelect | date:'MMMM, yyyy'}}</h1>
-                            <div id="calendar">
-                                <button (click)="changeMonth(1)" class="btn-next">Siguiente</button>
+                            <div class="col-sm-4 pb-3">
+                                <label for="exampleAccount"><b>Nombres</b></label>
+                                <input type="text" class="form-control" name="nombres" placeholder="Nombres"
+                                    #nombres="ngModel" [(ngModel)]="reserva.nombres" required>
+
+                                <small *ngIf="!nombres.valid && nombres.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
+                            </div>
+                            <div class="col-sm-4 pb-3">
+                                <label for="exampleAccount"><b>Apellidos</b></label>
+                                <input type="text" class="form-control" name="apellidos" placeholder="Apellidos"
+                                    #apellidos="ngModel" [(ngModel)]="reserva.apellidos" (blur)="busqueda()" required>
+
+                                <small *ngIf="!apellidos.valid && apellidos.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
                             </div>
                         </div>
-                        <ol>
-                            <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}}</li>
-                            <li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
-                                *ngFor="let day of monthSelect;let first = first">
-                                <div id="calendar" *ngIf="day.value == 1; then thenBlock else elseBlock"></div>
-                                <ng-template #thenBlock>
-                                    <span style="background-color: rgb(192, 205, 214);">{{day.value}}</span>
-                                </ng-template>
-                                <ng-template #elseBlock>
-                                    <span>
-                                        {{day.value}}
-                                    </span>
-                                </ng-template>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="col-sm-6 pb-3 form-group">
-                    <br>
-                    <br>
-                    <div class="row mt-12">
-                        <div class="col-sm-6 pb-3 form-group">
-                            <div class="input-field">
-                                <label for="nombre"><b>Fecha Inicial: </b>{{dateValue |date}}</label>
-                                <br>
+
+                        <div class="row mt-12">
+
+                            <div class="col-sm-4 pb-3">
+                                <label for="exampleAccount"><b>Correo</b></label>
+                                <input type="text" class="form-control" name="correo" placeholder="correo"
+                                    #correo="ngModel" [(ngModel)]="reserva.correo" required>
+
+                                <small *ngIf="!correo.valid && correo.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
                             </div>
-                            <div class="input-field">
-                                <br>
-                                <label for="nombre"><b>Fecha Final: </b>{{dateValueFinal |date}}</label>
+                            <div class="col-sm-4 pb-3">
+                                <label for="exampleAccount"><b>Pais</b></label>
+                                <input type="text" class="form-control" name="pais" placeholder="pais" #pais="ngModel"
+                                    [(ngModel)]="reserva.pais" (blur)="busqueda()" required>
+
+                                <small *ngIf="!pais.valid && pais.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
                             </div>
-                            <br>
-                            <div class="input-field">
-                                <a class="btn-floating btn-large waves-effect waves-light red"
-                                    style="height: 50px; width: 50px;" (click)="borrar()"><i
-                                        class="material-icons">delete</i></a>
+                            <div class="col-sm-4 pb-3">
+                                <label for="exampleAccount"><b>Telefono</b></label>
+                                <input type="text" class="form-control" name="telefono" placeholder="telefono"
+                                    #telefono="ngModel" [(ngModel)]="reserva.telefono" required>
+
+                                <small *ngIf="!telefono.valid && telefono.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
                             </div>
                         </div>
-                        <div class="col-sm-6 pb-3 form-group">
+                        <div class="row mt-12">
+                            <div class="col-sm-6 pb-3">
+                                <label for="exampleAccount"><b>Fecha Incial del Alojamiento</b></label>
+                                <input type="date" class="form-control" name="fecini" placeholder="fecini"
+                                    #fecini="ngModel" [(ngModel)]="reserva.fecha_ini" required>
 
+                                <small *ngIf="!fecini.valid && fecini.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
+                            </div>
+                            <div class="col-sm-6 pb-3">
+                                <label for="exampleAccount"><b>Fecha Final del Alojamiento</b></label>
+                                <input type="date" class="form-control" name="fecfin" placeholder="fecfin"
+                                    #fecfin="ngModel" [(ngModel)]="reserva.fecha_fin" required>
+                                <small *ngIf="!fecfin.valid && fecfin.touched" class="invalid-feedback d-block">
+                                    El campo no es valido!
+                                </small>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label for="apellido"><b>Valor Alojamiento por cada dia: <u>{{valor}}</u></b></label>
+                        </div>
+                        <div class="card-footer" style="align-items: center;">
+                            <div class="row mt-4">
+                                <button type="submit" [disabled]="registerForm.invalid"
+                                    class="btn btn-success">Reservar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="hijo" class="row mt-12" style="align-items: center;">
-                <p class="center-align">
-                    <button class="waves-effect waves-light btn" type="submit" [disabled]="registerForm.invalid"><i
-                            class="material-icons right">check_box</i>Reservar</button>
-                </p>
             </div>
         </form>
-    </section>
-</body>
-
-</html>
+    </div>
+</div>

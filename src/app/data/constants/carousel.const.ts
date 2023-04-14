@@ -9,7 +9,7 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
         },
         subtitle: 'Esto es una gran descripción',
         link: '/',
-        image: 'assets/images/1.jpg'
+        image: 'assets/images/1.jpeg'
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
         },
         subtitle: 'Esto es una gran descripción',
         link: '/',
-        image: 'assets/images/2.jpg'
+        image: 'assets/images/2.jpeg'
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
         },
         subtitle: 'Esto es una gran descripción',
         link: '/',
-        image: 'assets/images/3.jpg'
+        image: 'assets/images/3.jpeg'
     },
     {
         id: 4,
@@ -39,7 +39,7 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
         },
         subtitle: 'Esto es una gran descripción',
         link: '/',
-        image: 'assets/images/4.jpg'
+        image: 'assets/images/4.jpeg'
     },
     {
         id: 5,
@@ -49,6 +49,6 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
         },
         subtitle: 'Esto es una gran descripción',
         link: '/',
-        image: 'assets/images/5.jpg'
+        image: 'assets/images/5.jpeg'
     }
 ];

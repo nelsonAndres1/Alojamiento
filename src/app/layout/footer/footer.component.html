@@ -1,34 +1,55 @@
 <br>
 <br>
-<div  class="contenedor">
-    <nav class="nav" >
+<div class="contenedor">
+    <nav class="nav">
         <a class="nav-item" active-color="green" *ngFor="let dt of tipaloja" (click)="seleccion(dt)">{{dt.detalle}}</a>
         <span class="nav-indicator"></span>
     </nav>
-
 </div>
 <br>
 <br>
-<section class="app-main">
+<div class="app-main">
 
     <div class="app-main-left cards-area">
-        <div class="card-wrapper main-card" *ngFor="let dt of array_disponibles">
-            <a class="card cardItemjs">
-                <div class="card-image-wrapper">
-                    <img src="https://source.unsplash.com/featured/1200x900/?sculpture,hotel" alt="Hotel">
-                </div>
-                <div class="card-info">
-                    <div class="card-text big cardText-js">{{dt.detalle}}</div>
-                    <div class="card-text big cardText-js">{{dt.titulo}}</div>
-                    <div class="card-text small">{{dt.parrafo}}</div>
-                    <div class="card-text small">
-                        Starts from:
-                        <span class="card-price"> $1000</span>
+        <div class="row mt-12" *ngFor="let dt of array_disponibles">
+            <div class="col-sm-6">
+
+                <a class="card cardItemjs" onclick="openModal()">
+                    <section>
+                        <img src="assets/images/1.jpeg">
+                        <img src="assets/images/2.jpeg">
+                        <img src="assets/images/3.jpeg">
+                        <img src="assets/images/4.jpeg">
+                        <img src="assets/images/1.jpeg">
+                    </section>
+                    <div class="card-info">
+                        <div class="card-text big cardText-js">{{dt.detalle}}</div>
+                        <div class="card-text big cardText-js">{{dt.titulo}}</div>
+                        <div class="card-text small">{{dt.parrafo}}</div>
+                        <a class="navbar-brand" (click)="tarifas(dt.id)"><button type="button" class="btn btn-light"><i
+                                    class="fa fa-money"></i> Tarifas</button></a>
+                        <a class="navbar-brand" (click)="reservas(dt)"><button type="button" class="btn btn-success"><i
+                                    class="fa fa-calendar-check-o"></i> Reservar</button></a>
                     </div>
-                    <a class="navbar-brand" (click)="tarifas(dt.id)"><button type="button" class="btn btn-light"><i class="fa fa-money"></i> Tarifas</button></a>
-                    <a class="navbar-brand" (click)="reservas(dt)"><button type="button" class="btn btn-success"><i class="fa fa-calendar-check-o"></i> Reservar</button></a>
+                </a>
+            </div>
+
+            <div class="col-sm-6">
+                <label for=""><b>Información</b></label>
+                <div class="card card-outline-secondary">
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt facilis nihil quod eius
+                        reprehenderit aspernatur aliquam facere distinctio animi! Molestias praesentium non impedit
+                        nihil voluptatibus cum excepturi ex blanditiis qui!
+                    </p>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt facilis nihil quod eius
+                        reprehenderit aspernatur aliquam facere distinctio animi! Molestias praesentium non impedit
+                        nihil voluptatibus cum excepturi ex blanditiis qui!
+                    </p>
                 </div>
-            </a>
+            </div>
         </div>
+
     </div>
-</section>
+</div>

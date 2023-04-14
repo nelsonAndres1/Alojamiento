@@ -3,6 +3,13 @@
     margin: 0px auto;
 }
 
+.circular--square {
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+  }
+
 
 #div2 {
     align-items: center;
@@ -81,4 +88,116 @@ h2 {
     cursor: pointer;
     background-color: transparent;
     border: 0;
+}
+
+
+
+body
+{
+    margin:0;
+    background-color: #1c1c1c
+}
+
+.galeria-titulo
+{
+    padding: 30px 15px;
+}
+.titulo-seccion
+{
+    font-size: 60px;
+}
+
+ .subTitulo-seccion,.titulo-seccion
+{
+    /*opacity: 0;*/
+color: #fff;
+font-weight: 500;
+text-align: center;
+letter-spacing: 1px;
+text-transform: uppercase;
+transform: translateY(-30px);
+transition: ease all .5s;
+}
+
+.container-boxs
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.box{
+    position: relative;
+    width: 30%;
+    height: 260px;
+    margin: 10px 20px;
+    /*padding: 50px 0;*/
+    transition: ease all .5s;
+    overflow: hidden;
+/*     background-color: red; */
+}
+
+
+
+.box__img
+{
+  width: 100%;
+/*   min-height:100%; */
+  display: block;
+object-fit:cover;
+background-position: bottom ;
+
+}
+
+
+.box__cnt-titulo-img
+{
+  position: absolute;
+  top:0;
+left:0;
+bottom:0;
+right:0;
+  opacity: 0;
+/* 	width: 100%; */
+  transition:all .5s; 
+  background-image: linear-gradient(180deg, rgba(255,255,255,.0) 0, rgba(255,255,255,.0) 25%, rgba(255,255,255,.2) 35%,
+rgba(255,255,255,.4) 45%, 
+rgba(255,255,255,.6) 65%,    
+rgba(255,255,255,.9) 75%, rgba(255,255,255,.9) 100%);
+background-size: cover;
+  /*position: absolute;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  color:#333;
+
+
+}
+
+.box:hover .box__cnt-titulo-img	
+
+{
+  opacity: 1;
+}
+
+.box__titulo-img
+{
+  
+  font-size:2.2rem;
+  position: absolute;
+  bottom: -80px;
+  transition:all .2s;
+  font-weight: 700;
+/*   background-color: red; */
+}
+
+
+.box:hover .box__titulo-img	
+{
+  bottom: 0;
+  transition-delay:.2s;
+
 }

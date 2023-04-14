@@ -13,6 +13,7 @@ export class Reservas {
         public turno: string,
         public documento: string,
         public estado: string,
-        public categoria: string
+        public categoria: string,
+        public numero: number
     ) { }
 }

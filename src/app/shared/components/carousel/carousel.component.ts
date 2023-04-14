@@ -26,9 +26,9 @@ export class CarouselComponent implements OnInit {
 
   constructor() {
     this.finalHeight = this.isFullScreen ? '100vh' : `${this.height}px`;
-    var interval = setInterval(function() {
+   /*  var interval = setInterval(function() {
       $('#btn2').trigger('click');
-    }, 5000);  
+    }, 5000);  */ 
   }
 
   ngOnInit() {
