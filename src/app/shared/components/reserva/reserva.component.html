@@ -1,147 +1,201 @@
-<div class="container py-xl-5">
-    <h2 class="text-center mb-3">Detalles de la Reserva</h2>
-</div>
-<div class="card card-outline-secondary">
-    <div class="card-header">
-        <h3 class="mb-0">Detalles de la Reserva</h3>
-    </div>
-</div>
-<section class="section-galeria section">
-    <div class="container-boxs">
-        <div class="box">
-            <div class="box__Cnt-img">
-                <img style="border-radius: 10%;" src="assets/images/1.jpeg" alt="" class="box__img">
-            </div>
-
-            <div class="box__cnt-titulo-img">
-                <h2 class="box__titulo-img">Sala</h2>
+<body>
+    <div id="encabezado">
+        <div class="topbar">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="logotipo de la empresa" title="logotipo de la empresa">
             </div>
         </div>
-
-        <div class="box">
-            <div class="box__Cnt-img">
-                <img style="border-radius: 10%;" src="assets/images/2.jpeg" alt="" class="box__img">
-            </div>
-
-            <div class="box__cnt-titulo-img">
-                <h2 class="box__titulo-img">Comedor </h2>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="box__Cnt-img">
-                <img style="border-radius: 10%;" src="assets/images/3.jpeg" alt="" class="box__img">
-            </div>
-
-            <div class="box__cnt-titulo-img">
-                <h2 class="box__titulo-img">Habitaciones </h2>
-            </div>
+        <div class="texto1">
+            <h1>Confirma tu reserva!</h1>
+            <hr class="linea" />
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex explicabo enim id ipsam, possimus assumenda
+                optio quas, eligendi doloribus exercitationem eos esse non cumque unde odio delectus minima. Aliquid,
+                corrupti.</p>
         </div>
     </div>
-</section>
+    <div id="productos">
+        <div class="prod1">
+            <div class="prodicon1">
+                <img src="../../../../assets/images/7.png" alt="icono1">
+            </div>
+            <div class="prodtexto">
+                <h3>Texto 1</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ex alias deleniti autem
+                    aspernatur quas atque necessitatibus expedita quaerat, possimus vitae amet deserunt rerum nihil
+                    quasi error fuga animi accusantium.</p>
+            </div>
+        </div>
+        <div class="prod2">
+            <div class="prodicon2">
+                <img src="../../../../assets/images/8.png" alt="icono2">
+            </div>
+            <div class="prodtexto">
+                <h3>Texto 2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet deleniti at possimus nesciunt. Nam
+                    recusandae ullam alias voluptatibus libero ad quas pariatur laboriosam fugit, facilis consequuntur
+                    aspernatur perspiciatis modi maiores?</p>
+            </div>
+        </div>
+        <div class="prod3">
+            <div class="prodicon3">
+                <img src="../../../../assets/images/9.png" alt="icono3">
+            </div>
+            <div class="prodtexto">
+                <h3>Texto 3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima incidunt facilis voluptatem
+                    tempora nulla, iure corporis exercitationem maiores omnis nesciunt dicta reiciendis ipsa laborum ut
+                    laboriosam, inventore dignissimos repellendus.</p>
+            </div>
+        </div>
+        <div class="prod4">
+            <div class="prodicon4">
+                <img src="../../../../assets/images/10.png" alt="icono4">
+            </div>
+            <div class="prodtexto">
+                <h3>Texto 4</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus illo, libero quae
+                    commodi aliquid odio quo ut dignissimos repellendus consequuntur. Impedit ut inventore tempora nisi
+                    autem nihil quaerat voluptas.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
 
 
-<div class="container py-xl-5">
-    <h2 class="text-center mb-3">Reserva</h2>
-    <div class="row justify-content-center">
+<body id="body1">
+    <div class="container">
+        <div class="title">Reserva</div>
         <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-            <div class="col-md-12">
-                <div class="card card-outline-secondary">
-                    <div class="card-header">
-                        <h3 class="mb-0">Ingrese la información requerida</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row mt-12">
-                            <div class="col-sm-4 pb-3">
-                                <label for="exampleAccount"><b>Numero de Identificación</b></label>
-                                <input type="text" class="form-control" name="documento" placeholder="Documento"
-                                    #documento="ngModel" [(ngModel)]="reserva.documento" (blur)="busqueda()" required>
-
-                                <small *ngIf="!documento.valid && documento.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                            <div class="col-sm-4 pb-3">
-                                <label for="exampleAccount"><b>Nombres</b></label>
-                                <input type="text" class="form-control" name="nombres" placeholder="Nombres"
-                                    #nombres="ngModel" [(ngModel)]="reserva.nombres" required>
-
-                                <small *ngIf="!nombres.valid && nombres.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                            <div class="col-sm-4 pb-3">
-                                <label for="exampleAccount"><b>Apellidos</b></label>
-                                <input type="text" class="form-control" name="apellidos" placeholder="Apellidos"
-                                    #apellidos="ngModel" [(ngModel)]="reserva.apellidos" (blur)="busqueda()" required>
-
-                                <small *ngIf="!apellidos.valid && apellidos.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                        </div>
-
-                        <div class="row mt-12">
-
-                            <div class="col-sm-4 pb-3">
-                                <label for="exampleAccount"><b>Correo</b></label>
-                                <input type="text" class="form-control" name="correo" placeholder="correo"
-                                    #correo="ngModel" [(ngModel)]="reserva.correo" required>
-
-                                <small *ngIf="!correo.valid && correo.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                            <div class="col-sm-4 pb-3">
-                                <label for="exampleAccount"><b>Pais</b></label>
-                                <input type="text" class="form-control" name="pais" placeholder="pais" #pais="ngModel"
-                                    [(ngModel)]="reserva.pais" (blur)="busqueda()" required>
-
-                                <small *ngIf="!pais.valid && pais.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                            <div class="col-sm-4 pb-3">
-                                <label for="exampleAccount"><b>Telefono</b></label>
-                                <input type="text" class="form-control" name="telefono" placeholder="telefono"
-                                    #telefono="ngModel" [(ngModel)]="reserva.telefono" required>
-
-                                <small *ngIf="!telefono.valid && telefono.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                        </div>
-                        <div class="row mt-12">
-                            <div class="col-sm-6 pb-3">
-                                <label for="exampleAccount"><b>Fecha Incial del Alojamiento</b></label>
-                                <input type="date" class="form-control" name="fecini" placeholder="fecini"
-                                    #fecini="ngModel" [(ngModel)]="reserva.fecha_ini" required>
-
-                                <small *ngIf="!fecini.valid && fecini.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                            <div class="col-sm-6 pb-3">
-                                <label for="exampleAccount"><b>Fecha Final del Alojamiento</b></label>
-                                <input type="date" class="form-control" name="fecfin" placeholder="fecfin"
-                                    #fecfin="ngModel" [(ngModel)]="reserva.fecha_fin" required>
-                                <small *ngIf="!fecfin.valid && fecfin.touched" class="invalid-feedback d-block">
-                                    El campo no es valido!
-                                </small>
-                            </div>
-                        </div>
-                        <div class="input-field">
-                            <label for="apellido"><b>Valor Alojamiento por cada dia: <u>{{valor}}</u></b></label>
-                        </div>
-                        <div class="card-footer" style="align-items: center;">
-                            <div class="row mt-4">
-                                <button type="submit" [disabled]="registerForm.invalid"
-                                    class="btn btn-success">Reservar</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">
+                        Numero de Identificación
+                    </span>
+                    <input type="text" name="documento" placeholder="Documento" #documento="ngModel"
+                        [(ngModel)]="reserva.documento" (blur)="busqueda()" required>
+                    <small *ngIf="!documento.valid && documento.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
                 </div>
+                <div class="input-box">
+                    <span class="details">
+                        Nombres
+                    </span>
+                    <input type="text" name="nombres" placeholder="Nombres" #nombres="ngModel"
+                        [(ngModel)]="reserva.nombres" required>
+                    <small *ngIf="!nombres.valid && nombres.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
+                </div>
+                <div class="input-box">
+                    <span class="details">
+                        Apellidos
+                    </span>
+                    <input type="text" name="apellidos" placeholder="Apellidos" #apellidos="ngModel"
+                        [(ngModel)]="reserva.apellidos" (blur)="busqueda()" required>
+                    <small *ngIf="!apellidos.valid && apellidos.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Correo
+                    </span>
+                    <input type="email" name="correo" placeholder="correo" #correo="ngModel"
+                        [(ngModel)]="reserva.correo" required>
+                    <small *ngIf="!correo.valid && correo.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Pais
+                    </span>
+                    <input type="text" name="pais" placeholder="pais" #pais="ngModel" [(ngModel)]="reserva.pais"
+                        (blur)="busqueda()" required>
+                    <small *ngIf="!pais.valid && pais.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Telefono
+                    </span>
+                    <input type="text" name="telefono" placeholder="telefono" #telefono="ngModel"
+                        [(ngModel)]="reserva.telefono" required>
+                    <small *ngIf="!telefono.valid && telefono.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Fecha Inicial del Alojamiento
+                    </span>
+                    <input type="date" name="fecini" placeholder="fecini" #fecini="ngModel"
+                        [(ngModel)]="reserva.fecha_ini" required>
+                    <small *ngIf="!fecini.valid && fecini.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
+                </div>
+                <div class="input-box">
+                    <span class="details">
+                        Fecha Final del Alojamiento
+                    </span>
+                    <input type="date" class="form-control" name="fecfin" placeholder="fecfin" #fecfin="ngModel"
+                        [(ngModel)]="reserva.fecha_fin" required>
+                    <small *ngIf="!fecfin.valid && fecfin.touched" class="invalid-feedback d-block">
+                        El campo no es valido!
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="input-box">
+                <span class="details">
+                    Valor Alojamiento por cada dia:{{valor}}
+                </span>
+            </div>
+            <div class="button">
+                <input type="submit" value="Reservar" [disabled]="registerForm.invalid">
             </div>
         </form>
+    </div>
+</body>
+
+<div id="contacto">
+    <div class="contizq">
+        <div class="conttextoizq">
+            <h2>CONTACTA CON NOSOTROS</h2>
+            <p>sistemas@comfamiliarnarino.com</p>
+        </div>
+    </div>
+    <div class="contdcha">
+        <div class="conttextodcha">
+            <h2>¿SABES DÓNDE ESTAMOS?</h2>
+            <p>Centro Recreacional un Sol para Todos!</p>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><img src="./assets/logo.png"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2023
+                    <a href="https://comfamiliarnarino.com/">Comfamiliar de Nariño</a>.
+                </p>
+            </div>
+        </div>
     </div>
 </div>

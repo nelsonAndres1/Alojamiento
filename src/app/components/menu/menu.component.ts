@@ -30,4 +30,8 @@ export class MenuComponent implements OnInit {
   tiposaloja(){
     this._router.navigate(['tiposaloja']);
   }
+
+  confirmar(){
+    this._router.navigate(['confirmar']);
+  }
 }

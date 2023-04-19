@@ -6,6 +6,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { TaralojaComponent } from './components/taraloja/taraloja.component';
 import { TiposalojaComponent } from './components/tiposaloja/tiposaloja.component';
 import { ReservaComponent } from '@shared/components/reserva/reserva.component';
+import { ComfirmarReservaComponent } from '@shared/components/comfirmar-reserva/comfirmar-reserva.component';
 
 const routes: Routes = [
   {path: '',redirectTo: '/panel/user',pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'taraloja', component: TaralojaComponent},
   {path: 'tiposaloja', component: TiposalojaComponent},
   {path: 'reserva', component:ReservaComponent},
+  {path: 'confirmar', component:ComfirmarReservaComponent},
   {path: '**',redirectTo: '/panel/user',pathMatch: 'full'},
 ];
 

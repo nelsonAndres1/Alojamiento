@@ -41,6 +41,17 @@ export class ReservaService {
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         return this._http.post(this.url + 'reservas/verificarReservas', params, { headers: headers });
     }
+
+
+    getAllReservas(user: any): Observable<any> {
+        let json = JSON.stringify(user);
+        let params = 'json=' + json;
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.post(this.url + 'reservas/getAllReservas', params, { headers: headers });
+    }
+
+
+
     getIdentity() {
         let identity = JSON.parse(localStorage.getItem('identity') + '');
 

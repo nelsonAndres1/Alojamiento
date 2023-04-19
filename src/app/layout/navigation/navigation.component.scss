@@ -7,15 +7,14 @@
     background: rgba(0,0,0,0.8);
 }
 
-
-
-/* Please ❤ this if you like it! */
-
+#lg1 {
+    float: left;
+    width: 8%;
+    margin-top: 0%;
+    margin-left: -10%;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
-
-/* #Primary
-================================================== */
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -39,10 +38,6 @@ body{
 	color: #fff;
 	background-color: #8167a9;
 }
-
-
-/* #Navigation
-================================================== */
 
 .start-header {
 	opacity: 1;

@@ -17,6 +17,7 @@ import { TaralojaComponent } from './components/taraloja/taraloja.component';
 import { TiposalojaComponent } from './components/tiposaloja/tiposaloja.component';
 import localeEs from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
+import { ComfirmarReservaComponent } from './shared/components/comfirmar-reserva/comfirmar-reserva.component';
 registerLocaleData(localeEs, 'es');
 
 @NgModule({
@@ -28,7 +29,8 @@ registerLocaleData(localeEs, 'es');
     LoginComponent,
     MenuComponent,
     TaralojaComponent,
-    TiposalojaComponent
+    TiposalojaComponent,
+    ComfirmarReservaComponent
   ],
   imports: [
     BrowserModule,
